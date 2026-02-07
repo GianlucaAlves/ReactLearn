@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme - slate palette */
+    --background: 0 0% 100%;
+    --background-secondary: 210 40% 96.1%;
+    --foreground: 222.2 84% 4.9%;
+    --foreground-muted: 215.4 16.3% 46.9%;
+
+    --primary: 238.7 83.5% 66.7%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 238.7 83.5% 56%;
+
+    --success: 142.1 76.2% 36.3%;
+    --success-foreground: 355.7 100% 97.3%;
+
+    --error: 0 84.2% 60.2%;
+    --error-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --ring: 238.7 83.5% 66.7%;
+  }
+
+  .dark {
+    /* Dark theme - slate palette */
+    --background: 222.2 84% 4.9%;
+    --background-secondary: 217.2 32.6% 11%;
+    --foreground: 210 40% 98%;
+    --foreground-muted: 215 20.2% 65.1%;
+
+    --primary: 238.7 83.5% 66.7%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --primary-hover: 238.7 83.5% 76%;
+
+    --success: 142.1 70.6% 45.3%;
+    --success-foreground: 144.9 80.4% 10%;
+
+    --error: 0 72.2% 50.6%;
+    --error-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --border: 217.2 32.6% 17.5%;
+    --ring: 238.7 83.5% 66.7%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Scrollbar customizada */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background-secondary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-foreground-muted/30 rounded-full hover:bg-foreground-muted/50;
+  }
+}
+
+@layer utilities {
+  /* Focus visible ring */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Gradient text utility */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-indigo-400 bg-clip-text text-transparent;
+  }
+}

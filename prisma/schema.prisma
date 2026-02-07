@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enum para tipo de lição
+enum LessonType {
+  TEXT       // Apenas texto/teoria
+  EXERCISE   // Lição com exercício prático
+}
+
+model User {
+  id        String     @id @default(cuid())
+  name      String?
+  email     String     @unique
+  createdAt DateTime   @default(now())
+  progress  Progress[]
+}
+
+model Course {
+  id      String   @id @default(cuid())
+  title   String
+  slug    String   @unique
+  modules Module[]
+}
+
+model Module {
+  id       String   @id @default(cuid())
+  title    String
+  order    Int
+  courseId String?
+  course   Course?  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons  Lesson[]
+
+  @@index([courseId])
+}
+
+model Lesson {
+  id        String      @id @default(cuid())
+  title     String
+  content   String      // Conteúdo MDX da lição
+  order     Int
+  type      LessonType  @default(TEXT)
+  moduleId  String?
+  module    Module?     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  exercises Exercise[]
+  progress  Progress[]
+
+  @@index([moduleId])
+}
+
+model Exercise {
+  id           String  @id @default(cuid())
+  lessonId     String?
+  lesson       Lesson? @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  starterCode  String  // Código inicial para o aluno
+  solutionCode String  // Código da solução (para hints)
+  testCode     String  // Código de testes para validação
+
+  @@index([lessonId])
+}
+
+model Progress {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId  String?
+  lesson    Lesson?  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  completed Boolean  @default(false)
+  lastCode  String?  // Último código salvo pelo aluno
+
+  @@unique([userId, lessonId])
+  @@index([userId])
+  @@index([lessonId])
+}
