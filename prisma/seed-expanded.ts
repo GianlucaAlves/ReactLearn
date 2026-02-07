@@ -5,13 +5,6 @@ const prisma = new PrismaClient();
 async function main() {
   console.log("🌱 Iniciando seed expandido...");
 
-  // Limpa dados existentes
-  await prisma.progress.deleteMany();
-  await prisma.exercise.deleteMany();
-  await prisma.lesson.deleteMany();
-  await prisma.module.deleteMany();
-  await prisma.course.deleteMany();
-  await prisma.user.deleteMany();
 
   // Cria usuário demo
   await prisma.user.create({
