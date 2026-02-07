@@ -24,31 +24,31 @@ export function LessonNavigation({
   moduleId,
 }: LessonNavigationProps) {
   return (
-    <nav className="flex items-center justify-between border-t border-border pt-6 mt-8">
+    <nav className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-border pt-6 mt-8">
       {prevLesson ? (
-        <Button variant="outline" asChild>
+        <Button variant="outline" className="w-full sm:w-auto justify-start" asChild>
           <Link
             href={`/courses/${courseSlug}/${prevLesson.moduleId}/${prevLesson.id}`}
           >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            {prevLesson.title}
+            <ArrowLeft className="mr-2 h-4 w-4 shrink-0" />
+            <span className="truncate">{prevLesson.title}</span>
           </Link>
         </Button>
       ) : (
-        <div />
+        <div className="hidden sm:block" />
       )}
 
       {nextLesson ? (
-        <Button variant="primary" asChild>
+        <Button variant="primary" className="w-full sm:w-auto justify-center" asChild>
           <Link
             href={`/courses/${courseSlug}/${nextLesson.moduleId}/${nextLesson.id}`}
           >
-            {nextLesson.title}
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <span className="truncate">{nextLesson.title}</span>
+            <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
           </Link>
         </Button>
       ) : (
-        <Button variant="success" asChild>
+        <Button variant="success" className="w-full sm:w-auto" asChild>
           <Link href={`/courses/${courseSlug}`}>🎉 Curso Completo!</Link>
         </Button>
       )}

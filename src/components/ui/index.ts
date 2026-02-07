@@ -9,3 +9,5 @@ export {
 } from "./card";
 export { ProgressBar } from "./progress-bar";
 export { Badge } from "./badge";
+export { Header } from "./header";
+export { ThemeToggle } from "./theme-toggle";

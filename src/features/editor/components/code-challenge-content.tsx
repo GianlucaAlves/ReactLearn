@@ -3,7 +3,6 @@
 import { useState, useCallback } from "react";
 import {
   SandpackProvider,
-  SandpackLayout,
   SandpackCodeEditor,
   SandpackPreview,
   SandpackConsole,
@@ -114,20 +113,25 @@ export function CodeChallengeContent({
           </div>
         )}
 
-        <SandpackLayout>
-          <SandpackCodeEditor
-            showTabs
-            showLineNumbers
-            showInlineErrors
-            wrapContent
-            style={{ height: "400px" }}
-          />
-          <SandpackPreview
-            showNavigator={false}
-            showRefreshButton
-            style={{ height: "400px" }}
-          />
-        </SandpackLayout>
+        {/* Editor e Preview - Responsivo */}
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex-1 min-w-0">
+            <SandpackCodeEditor
+              showTabs
+              showLineNumbers
+              showInlineErrors
+              wrapContent
+              style={{ height: "350px", minHeight: "300px" }}
+            />
+          </div>
+          <div className="flex-1 min-w-0 border-t lg:border-t-0 lg:border-l border-border">
+            <SandpackPreview
+              showNavigator={false}
+              showRefreshButton
+              style={{ height: "350px", minHeight: "300px" }}
+            />
+          </div>
+        </div>
 
         {/* Action Bar */}
         <EditorActions

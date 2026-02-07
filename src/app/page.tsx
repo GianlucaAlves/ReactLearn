@@ -1,50 +1,32 @@
 import Link from "next/link";
-import { ArrowRight, Code2, BookOpen, CheckCircle, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, BookOpen, CheckCircle, Zap } from "lucide-react";
+import { Button, Header } from "@/components/ui";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border">
-        <nav className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <Code2 className="h-6 w-6 text-primary" />
-            <span>ReactMaster</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/courses"
-              className="text-foreground-muted hover:text-foreground transition-colors"
-            >
-              Cursos
-            </Link>
-            <Button variant="primary" size="sm" asChild>
-              <Link href="/courses">Começar Agora</Link>
-            </Button>
-          </div>
-        </nav>
-      </header>
+      <Header />
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-24 text-center">
+      <section className="container mx-auto px-4 py-12 sm:py-16 md:py-24 text-center">
         <div className="mx-auto max-w-3xl">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             Aprenda <span className="text-gradient">React</span> na Prática
           </h1>
-          <p className="mt-6 text-lg text-foreground-muted leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-foreground-muted leading-relaxed px-2">
             Domine React com exercícios interativos e validação em tempo real.
             Escreva código, veja o resultado instantaneamente e avance no seu
             próprio ritmo.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <Button variant="primary" size="lg" asChild>
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <Button variant="primary" size="lg" className="w-full sm:w-auto" asChild>
               <Link href="/courses">
                 Explorar Cursos
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
               <Link href="/courses/react-fundamentals">Ver Demo</Link>
             </Button>
           </div>
@@ -52,8 +34,8 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid gap-8 md:grid-cols-3">
+      <section className="container mx-auto px-4 py-12 sm:py-16">
+        <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <FeatureCard
             icon={<BookOpen className="h-8 w-8" />}
             title="Conteúdo Estruturado"

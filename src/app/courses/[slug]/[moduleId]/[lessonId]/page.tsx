@@ -122,15 +122,16 @@ export default async function LessonPage({ params }: LessonPageProps) {
       {/* Header */}
       <header className="border-b border-border bg-background">
         <div className="flex h-14 items-center justify-between px-4">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" asChild>
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
+            <Button variant="ghost" size="sm" className="shrink-0" asChild>
               <Link href={`/courses/${slug}`}>
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                {module.title}
+                <ArrowLeft className="mr-1 sm:mr-2 h-4 w-4" />
+                <span className="hidden sm:inline">{module.title}</span>
+                <span className="sm:hidden">Voltar</span>
               </Link>
             </Button>
           </div>
-          <Link href="/" className="flex items-center gap-2 font-bold">
+          <Link href="/" className="hidden sm:flex items-center gap-2 font-bold">
             <Code2 className="h-5 w-5 text-primary" />
             <span>ReactMaster</span>
           </Link>
@@ -150,8 +151,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
         {/* Lesson Content */}
         <main className="flex-1 overflow-y-auto">
-          <div className="mx-auto max-w-4xl px-8 py-8">
-            <h1 className="text-3xl font-bold mb-6">{lesson.title}</h1>
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">{lesson.title}</h1>
 
             {/* MDX Content */}
             <MDXContent>
@@ -160,8 +161,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
             {/* Code Challenge (se for exercício) */}
             {lesson.type === "EXERCISE" && exercise && (
-              <div className="mt-8">
-                <h2 className="text-xl font-semibold mb-4">🎯 Desafio</h2>
+              <div className="mt-6 sm:mt-8">
+                <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">🎯 Desafio</h2>
                 <CodeChallenge
                   starterCode={exercise.starterCode}
                   solutionCode={exercise.solutionCode}
