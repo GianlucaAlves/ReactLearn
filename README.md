@@ -1,6 +1,6 @@
 # ReactMaster 🚀
 
-Plataforma de ensino de React "Learning by Doing" com exercícios práticos e validação em tempo real.
+Plataforma de ensino de React "Learning by Doing" com exercícios práticos e validação em tempo real. Você pode ver o resultado do projeto em react-learn-umber.vercel.app
 
 # Sobre o Projeto
 
