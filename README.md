@@ -2,6 +2,33 @@
 
 Plataforma de ensino de React "Learning by Doing" com exercícios práticos e validação em tempo real.
 
+# Sobre o Projeto
+
+Este projeto foi desenvolvido integralmente com o apoio de agentes de Inteligência Artificial, desde a concepção até a implementação final. O objetivo principal foi explorar, de forma prática, o potencial e as limitações das ferramentas de IA atuais no desenvolvimento de aplicações web modernas.
+
+Durante o processo, busquei me familiarizar com:
+
+- **Engenharia Agêntica e Prompt:** Utilização de agentes de IA para geração de código, automação de tarefas, revisão de arquitetura, documentação e validação de requisitos.
+- **Integração com MCP PostgreSQL:** Experimentei o uso do Model Context Protocol para consultas e manipulação de dados, reforçando a importância de tipagem forte e segurança.
+- **Deploy automatizado com Vercel:** Implementei CI/CD para entrega contínua, testando fluxos de deploy cloud-native.
+- **Design System e Acessibilidade:** Construí um sistema de design com Tailwind CSS, priorizando acessibilidade, responsividade e consistência visual.
+- **MDX e Sandpack:** Desenvolvi uma engine de conteúdo interativa, permitindo aulas dinâmicas e exercícios práticos com validação automatizada.
+- **Arquitetura Feature-Based:** Estruturei o projeto por funcionalidades, facilitando escalabilidade e manutenção.
+- **Prisma ORM:** Utilizei o Prisma para garantir tipagem forte e facilitar a modelagem de dados.
+- **Validação e automação de testes:** Explorei a execução de testes automatizados para exercícios, com feedback orientado ao aprendizado.
+
+Por ter sido construído com agentes de IA, o projeto pode apresentar limitações, erros ou vulnerabilidades inerentes à tecnologia e ao processo experimental. O foco foi entender até onde os agentes de IA podem contribuir, quais são seus pontos fortes e onde ainda exigem intervenção humana.
+
+Esse experimento proporcionou aprendizados sobre:
+
+- Colaboração entre desenvolvedor e IA
+- Automação de tarefas repetitivas
+- Geração de código e documentação
+- Identificação de gaps e limitações das ferramentas atuais
+- Práticas de DevOps, CI/CD e integração de serviços
+
+O projeto serve como um registro prático do estado da arte das ferramentas de IA aplicadas ao desenvolvimento web, evidenciando tanto avanços quanto desafios, e agregando valor ao portfólio como experiência real de experimentação e adaptação tecnológica.
+
 ## Stack Tecnológica
 
 - **Framework:** Next.js 15 (App Router)
@@ -129,15 +156,3 @@ User (Usuário)
 - [x] Dark/Light mode
 - [x] API de progresso
 - [x] Seed de dados de exemplo
-
-### 🚧 Próximos Passos
-
-- [ ] Sistema de autenticação (Clerk/NextAuth)
-- [ ] Validação real de testes no Sandpack
-- [ ] Sistema de hints progressivos
-- [ ] Dashboard do aluno
-- [ ] Persistência de código no LocalStorage
-
-## Licença
-
-MIT
